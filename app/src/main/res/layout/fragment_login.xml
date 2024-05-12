@@ -26,7 +26,6 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/guidelineLoginLeft"
             app:layout_constraintTop_toTopOf="parent"
-
             android:text="Kleine."/>
 
         <TextView
