@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "105221117123",
+    "project_id": "keline-1b79a",
+    "storage_bucket": "keline-1b79a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105221117123:android:126dfab1ed65e8ca06fe76",
+        "android_client_info": {
+          "package_name": "dev.androidbroadcast.keline"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDj9Tg45j40zQfFQ6Q7xjAL6LFipxa79DE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
