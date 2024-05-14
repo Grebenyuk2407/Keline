@@ -71,6 +71,7 @@
 
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnLoginAccountOptions"
             android:layout_width="@dimen/mediumButtonWidth"
             android:layout_height="@dimen/mediumButtonHeight"
             style="@style/whiteButtonStyle"
