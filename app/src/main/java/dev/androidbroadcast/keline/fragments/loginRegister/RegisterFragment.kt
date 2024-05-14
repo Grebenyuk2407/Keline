@@ -12,8 +12,11 @@ import dagger.hilt.android.AndroidEntryPoint
 import dev.androidbroadcast.keline.R
 import dev.androidbroadcast.keline.data.User
 import dev.androidbroadcast.keline.databinding.FragmentRegisterBinding
+import dev.androidbroadcast.keline.util.RegisterValidation
 import dev.androidbroadcast.keline.util.Resource
 import dev.androidbroadcast.keline.viewmodel.RegisterViewModel
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 
 private val TAG = "RegisterFragment"
@@ -67,6 +70,28 @@ class RegisterFragment : Fragment() {
 
                 }
 
+            }
+        }
+
+        lifecycleScope.launchWhenStarted {
+            viewModel.validation.collect{validation ->
+                if (validation.email is RegisterValidation.Failed){
+                    withContext(Dispatchers.Main){
+                        binding.edEmailRegister.apply {
+                            requestFocus()
+                            error = validation.email.message
+                        }
+                    }
+                }
+
+                if (validation.password is RegisterValidation.Failed){
+                    withContext(Dispatchers.Main){
+                        binding.edPasswordRegister.apply {
+                            requestFocus()
+                            error = validation.password.message
+                        }
+                    }
+                }
             }
         }
     }
