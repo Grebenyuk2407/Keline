@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import dev.androidbroadcast.keline.R
 import dev.androidbroadcast.keline.activitys.ShoppingActivity
@@ -52,6 +53,25 @@ class LoginFragment : Fragment() {
 
         binding.tvForgotPasswordLogin.setOnClickListener {
             setupBottomSheetDialog { email ->
+                viewModel.resetPassword(email)
+
+            }
+        }
+
+        lifecycleScope.launchWhenStarted {
+            viewModel.resetPassword.collect{
+                when(it){
+                    is Resource.Loading ->{
+
+                    }
+                    is Resource.Success ->{
+                        Snackbar.make(requireView(),"Reset link was send to your email",Snackbar.LENGTH_LONG).show()
+                    }
+                    is Resource.Error ->{
+                        Snackbar.make(requireView(),"Error: ${it.message}",Snackbar.LENGTH_LONG).show()
+                    }
+                    else -> Unit
+                }
 
             }
         }
