@@ -14,6 +14,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import dev.androidbroadcast.keline.R
 import dev.androidbroadcast.keline.activitys.ShoppingActivity
 import dev.androidbroadcast.keline.databinding.FragmentLoginBinding
+import dev.androidbroadcast.keline.dialog.setupBottomSheetDialog
 import dev.androidbroadcast.keline.util.Resource
 import dev.androidbroadcast.keline.viewmodel.LoginViewModel
 import kotlinx.coroutines.flow.collect
@@ -47,6 +48,14 @@ class LoginFragment : Fragment() {
         }
 
         }
+
+
+        binding.tvForgotPasswordLogin.setOnClickListener {
+            setupBottomSheetDialog { email ->
+
+            }
+        }
+
         lifecycleScope.launchWhenStarted {
             viewModel.login.collect{
                 when(it){
