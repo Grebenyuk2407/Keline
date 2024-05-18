@@ -56,6 +56,10 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
+    //Navigation component
+    implementation (libs.androidx.navigation.fragment.ktx.v252)
+    implementation (libs.androidx.navigation.ui.ktx)
+
 
     //loading button
     implementation(libs.loading.button.android)

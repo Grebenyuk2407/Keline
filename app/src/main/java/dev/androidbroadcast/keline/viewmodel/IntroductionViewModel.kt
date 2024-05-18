@@ -4,6 +4,7 @@ import android.content.SharedPreferences
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
+import dagger.hilt.android.lifecycle.HiltViewModel
 import dev.androidbroadcast.keline.R
 import dev.androidbroadcast.keline.util.Constance.INTRODUCTION_KEY
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -11,9 +12,10 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class IntroductionViewModel @Inject constructor(
    private val sharedPreferences: SharedPreferences,
-    private val firebaseAuth: FirebaseAuth
+    firebaseAuth: FirebaseAuth
 ) : ViewModel() {
 
     private val _navigate = MutableStateFlow(0)
