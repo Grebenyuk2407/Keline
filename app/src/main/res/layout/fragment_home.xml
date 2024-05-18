@@ -77,7 +77,7 @@
             android:padding="10dp"/>
     </LinearLayout>
 
-<TableLayout
+<com.google.android.material.tabs.TabLayout
     android:id="@+id/tabLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -88,6 +88,7 @@
     app:layout_constraintTop_toBottomOf="@id/homeHeader"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
+    app:tabIndicator="@null"
     android:layout_marginTop="5dp"/>
 
     <androidx.viewpager2.widget.ViewPager2
